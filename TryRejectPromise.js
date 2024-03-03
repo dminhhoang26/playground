@@ -11,4 +11,4 @@ let func2 = async () => {
     console.log(`error `, error)
   }
 }
-func2()
+await func2()
