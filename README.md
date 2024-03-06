@@ -1,7 +1,9 @@
 ## My playground
 ### Some css tips
 ```css
-white-space: pre-wrap;
+awesome-class: {
+    white-space: pre-wrap;
+}
 ```
 ```css
 <!-- flex display -->
