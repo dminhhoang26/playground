@@ -97,7 +97,7 @@ function patienceDiff(aLines, bLines, diffPlusFlag) {
   //
   function longestCommonSubsequence(abMap) {
     const ja = [];
-    
+
     // First, walk the list creating the jagged array.
     abMap.forEach((val, key, map) => {
       let i = 0;

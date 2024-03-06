@@ -2,8 +2,8 @@ let case1 = () => {
   let tmpObj = {'abc': null}
   console.log(`1111 `, )
   for (const [key, student] of Object.entries(tmpObj)) {
-    console.log(`keuy `, key)
-    console.log(`sutdent`, student)
+    console.log(`key `, key)
+    console.log(`student`, student)
   }
 }
 
