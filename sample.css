@@ -1,18 +1,9 @@
-## My playground
-### Some css tips
-```css
-
-awesome-class: {
+.awesome-class: {
     white-space: pre-wrap;
 }
-awsome-class1: {
-    white-space: pre-line;
-}
 
-```
-```css
 <!-- flex display -->
-awesome-class: {
+.awesome-class: {
     justify-content: start end center space-between space-around;
     
     align-items: start end center baseline stretch;
@@ -25,5 +16,3 @@ awesome-class: {
     order: 0;
     align-content: start end center space-between space-around stretch;
 }
-
-```
