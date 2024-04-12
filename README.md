@@ -27,3 +27,6 @@ awesome-class: {
 }
 
 ```
+
+### Javascript
+- stopImmediatePropagation event
