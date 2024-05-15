@@ -30,3 +30,4 @@ awesome-class: {
 
 ### Javascript
 - stopImmediatePropagation event
+- promise can add any value and return this value if not exec
