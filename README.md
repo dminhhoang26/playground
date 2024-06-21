@@ -29,6 +29,21 @@ awesome-class: {
 }
 
 ```
+[overflow element trick:](https://stackoverflow.com/questions/12013066/how-to-ignore-parent-elements-overflowhidden-in-css)
+```css
+# A good way to do it is by setting the overflowing element to position:fixed (which will make it ignore the parent overflow), and then positioning it relative to the parent using this technique:
+
+​.parent {
+   position: relative;      
+   .fixed-wrapper {
+       position: absolute;         
+       .fixed {
+           position: fixed;
+       }
+   }
+}
+# One caveat is that you cannot have any of the top,right,left,bottom properties set on the fixed element (they must all be default 'auto'). If you need to adjust the position slightly, you can do so using positive/negative margins instead.
+```
 
 ### Javascript
 - stopImmediatePropagation event
