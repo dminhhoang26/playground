@@ -45,6 +45,23 @@ awesome-class: {
 # One caveat is that you cannot have any of the top,right,left,bottom properties set on the fixed element (they must all be default 'auto'). If you need to adjust the position slightly, you can do so using positive/negative margins instead.
 ```
 
+Remove arrow in input type number tailwindcss
+```css
+/* In your global.css file */
+@layer utilities {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+```
+
 ### Javascript
 - stopImmediatePropagation event
 - promise can add any value and return this value if not exec
