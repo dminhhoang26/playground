@@ -1,6 +1,3 @@
-# custom zsh theme
-
-```bash
 local return_code="%(?..%{$fg[red]%} %?↵ %{$reset_color%})%{$FG[239]%}%*%{$reset_color%}"
 local user_host="%B%(!.%{$fg[red]%}.%{$FG[033]%})%n@%m%{$reset_color%}%b "
 local user_symbol='%(!.#.$)'
@@ -38,4 +35,3 @@ ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX="%{$fg[green]%}‹"
 ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX="› %{$reset_color%}"
 ZSH_THEME_VIRTUALENV_PREFIX="$ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX"
 ZSH_THEME_VIRTUALENV_SUFFIX="$ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX"
-```
