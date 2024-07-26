@@ -62,6 +62,17 @@ Remove arrow in input type number tailwindcss
 
 ```
 
+Overflow text
+```css
+.cut-text { 
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  width: 160px; 
+  height: 1.2em; 
+  white-space: nowrap;
+}
+```
+
 ### Javascript
 - stopImmediatePropagation event
 - promise can add any value and return this value if not exec
