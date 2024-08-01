@@ -78,3 +78,6 @@ Overflow text
 - promise can add any value and return this value if not exec
 - TipTap headless editor (try to implement in angular)
 - Corepack for nodejs
+
+### Libs
+- https://www.npmjs.com/package/ngx-image-cropper
