@@ -1,6 +1,6 @@
 ## [Github actions](https://github.com/actions)
 
-## My playground
+## Note / Tip
 ### Some css tips
 ```css
 
@@ -82,3 +82,6 @@ Overflow text
 
 ### Libs
 - https://www.npmjs.com/package/ngx-image-cropper
+
+### Tailwindcss
+- Make class name !important -> `!classname`
