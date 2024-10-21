@@ -83,6 +83,19 @@ Overflow text
 - Corepack for nodejs
 - Object.groupBy, Map.groupBy
 
+### React
+- Event type quick
+  ```typescript
+    import React from "react";
+     
+    const onChange: React.ComponentProps<"input">["onChange"] =
+      (e) => {
+        console.log(e);
+      };
+     
+    <input onChange={onChange} />;
+  ```
+
 ### Libs
 - https://www.npmjs.com/package/ngx-image-cropper
 
