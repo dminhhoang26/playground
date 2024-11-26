@@ -98,6 +98,7 @@ Overflow text
 
 ### Libs
 - https://www.npmjs.com/package/ngx-image-cropper
+- https://github.com/romboHQ/tailwindcss-motion
 
 ### Tailwindcss
 - Make class name !important -> `!classname`
