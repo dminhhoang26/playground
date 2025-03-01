@@ -95,6 +95,7 @@ Overflow text
      
     <input onChange={onChange} />;
   ```
+- realm (local db)
 
 ### Libs
 - https://www.npmjs.com/package/ngx-image-cropper
