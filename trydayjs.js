@@ -5,6 +5,7 @@ dayjs.extend(require('dayjs/plugin/timezone'))
 dayjs.extend(require('dayjs/plugin/localizedFormat'))
 dayjs.extend(require('dayjs/plugin/relativeTime'))
 dayjs.extend(require('dayjs/plugin/customParseFormat'))
+dayjs.extend(require('dayjs/plugin/weekday'))
 
 dayjs.locale('vi')
 
@@ -20,3 +21,13 @@ for (let i = 0; i < 7; i++) {
 }
 
 console.log(dayjs.utc().startOf('month').format())
+const s = []
+const WEEKDAYS = Array.from({ length: 7 }, (_, i) => i).reduce((previousValue, currentValue) => {
+    console.log(previousValue, currentValue)
+    // previousValue.push(dayjs().weekday(currentIndex).format('ddd'))
+    previousValue.push(dayjs().weekday(currentValue).format('ddd'))
+    return previousValue
+}, [])
+console.log(Array.from({ length: 7 }, (_, i) => dayjs().weekday(i).format('ddd')))
+
+console.log(Math.ceil(36 / 7))
