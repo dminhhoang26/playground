@@ -83,6 +83,29 @@ Overflow text
 - Corepack for nodejs
 - Object.groupBy, Map.groupBy
 
+### Typescript
+- Union type
+```typescript
+const obj = {
+  '1': 'apple',
+  '2': 'banana',
+  '3': 'cherry',
+} as const satisfies Record<string, string>;
+
+type KeyUnion = keyof typeof apiData; // '1' | '2' | '3'
+type ValueUnion = typeof apiData[keyof typeof apiData]; // 'apple' | 'banana' | 'cherry'
+```
+```typescript
+const obj = {
+  '1': 'a',
+  '2': 'b',
+  '3': 'c',
+} as const;
+
+type KeyUnion = keyof typeof obj;    // '1' | '2' | '3'
+type ValueUnion = typeof obj[keyof typeof obj]; // 'a' | 'b' | 'c'
+```
+
 ### React
 - Event type quick
   ```typescript
