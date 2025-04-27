@@ -85,26 +85,41 @@ Overflow text
 
 ### Typescript
 - Union type
-```typescript
-const obj = {
-  '1': 'apple',
-  '2': 'banana',
-  '3': 'cherry',
-} as const satisfies Record<string, string>;
-
-type KeyUnion = keyof typeof obj; // '1' | '2' | '3'
-type ValueUnion = typeof obj[keyof typeof obj]; // 'apple' | 'banana' | 'cherry'
-```
-```typescript
-const obj = {
-  '1': 'a',
-  '2': 'b',
-  '3': 'c',
-} as const;
-
-type KeyUnion = keyof typeof obj;    // '1' | '2' | '3'
-type ValueUnion = typeof obj[keyof typeof obj]; // 'a' | 'b' | 'c'
-```
+    ```typescript
+    const obj = {
+      '1': 'apple',
+      '2': 'banana',
+      '3': 'cherry',
+    } as const satisfies Record<string, string>;
+    
+    type KeyUnion = keyof typeof obj; // '1' | '2' | '3'
+    type ValueUnion = typeof obj[keyof typeof obj]; // 'apple' | 'banana' | 'cherry'
+    ```
+    ```typescript
+    const obj = {
+      '1': 'a',
+      '2': 'b',
+      '3': 'c',
+    } as const;
+    
+    type KeyUnion = keyof typeof obj;    // '1' | '2' | '3'
+    type ValueUnion = typeof obj[keyof typeof obj]; // 'a' | 'b' | 'c'
+    ```
+    ```typescript
+    function createKeyUnion<T extends Record<string, any>>(obj: T) {
+      return Object.keys(obj) as (keyof T)[];
+    }
+    
+    // Example usage:
+    const apiData = {
+      '1': 'apple',
+      '2': 'banana',
+      '3': 'cherry',
+    } as const;
+    
+    const keys = createKeyUnion(apiData); 
+    // => type of keys: ('1' | '2' | '3')[]
+    ```
 
 ### React
 - Event type quick
