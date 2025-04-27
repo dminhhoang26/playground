@@ -92,8 +92,8 @@ const obj = {
   '3': 'cherry',
 } as const satisfies Record<string, string>;
 
-type KeyUnion = keyof typeof apiData; // '1' | '2' | '3'
-type ValueUnion = typeof apiData[keyof typeof apiData]; // 'apple' | 'banana' | 'cherry'
+type KeyUnion = keyof typeof obj; // '1' | '2' | '3'
+type ValueUnion = typeof obj[keyof typeof obj]; // 'apple' | 'banana' | 'cherry'
 ```
 ```typescript
 const obj = {
