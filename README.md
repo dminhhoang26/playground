@@ -141,3 +141,6 @@ Overflow text
 
 ### Tailwindcss
 - Make class name !important -> `!classname`
+
+### sh
+- clean android: `./gradlew clean`
