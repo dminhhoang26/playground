@@ -144,3 +144,4 @@ Overflow text
 
 ### sh
 - clean android: `./gradlew clean`
+- update the macos quarantine to fix app cannot open: `xattr -c /Applications/AppName.app`
