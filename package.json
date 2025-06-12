@@ -1,8 +1,17 @@
 {
-  "name": "test",
+  "name": "playground",
   "version": "1.0.0",
   "description": "",
-  "scripts": {},
-  "dependencies": {},
-  "devDependencies": {}
+  "license": "UNLICENSED",
+  "author": "d.minhhoang26@gmail.com",
+  "scripts": {
+    "start:dayjs": "nodemon ./trydayjs.js"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "packageManager": "yarn@1.22.22"
 }
