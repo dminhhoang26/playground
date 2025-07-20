@@ -135,6 +135,9 @@ Overflow text
   ```
 - realm (local db)
 
+- Expo run current arch only: `expo run:android --active-arch-only`
+
+
 ### Libs
 - https://www.npmjs.com/package/ngx-image-cropper
 - https://github.com/romboHQ/tailwindcss-motion
