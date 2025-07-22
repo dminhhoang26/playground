@@ -1,163 +1,288 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Login Preview</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: #f8f9fa;
-            min-height: 100vh;
-        }
-        .container-fluid {
-            min-height: 100vh;
-        }
-        .phone-frame {
-            width: 400px;
-            height: 850px;
-            border-radius: 50px;
-            border: 8px solid #222;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 1.5px 0 #888 inset;
-            position: relative;
-            background: #fff;
-            margin: 0 auto;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-        }
-        .phone-notch {
-            width: 120px;
-            height: 18px;
-            background: #222;
-            border-radius: 0 0 18px 18px;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .preview-bg {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            z-index: 1;
-            top: 0; left: 0;
-            object-fit: cover;
-        }
-        .preview-overlay {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding-top: 80px;
-        }
-        .preview-icon {
-            width: 96px;
-            height: 96px;
-            border-radius: 24px;
-            background: #fff;
-            object-fit: cover;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-            margin-bottom: 18px;
-        }
-        .preview-title {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #fff;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.25);
-            margin-bottom: 32px;
-            text-align: center;
-        }
-        .login-form-preview {
-            background: #fff;
-            border-radius: 25px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1.5px 0 #eee inset;
-            padding: 32px 24px 24px 24px;
-            width: 90%;
-            max-width: 320px;
-            margin: 0 auto;
-            z-index: 3;
-            border: none;
-            position: relative;
-            top: 0;
-            transition: box-shadow 0.3s;
-        }
-        .login-form-preview:focus-within {
-            box-shadow: 0 12px 40px rgba(0,0,0,0.28), 0 1.5px 0 #eee inset;
-        }
-        @media (max-width: 991px) {
-            .phone-frame {
-                width: 320px;
-                height: 600px;
-            }
-        }
-        @media (max-width: 767px) {
-            .row {
-                flex-direction: column;
-            }
-            .phone-frame {
-                margin-top: 32px;
-                margin-bottom: 32px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>School Login Preview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background: #f8f9fa;
+      min-height: 100vh;
+      height: 100vh;
+    }
+
+    .container-fluid,
+    .row {
+      min-height: 100vh;
+      height: 100vh;
+    }
+
+    .phone-frame {
+      width: 400px;
+      height: 850px;
+      border-radius: 50px;
+      border: 8px solid #222;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 1.5px 0 #888 inset;
+      position: relative;
+      background: #fff;
+      margin: 0 auto;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .phone-notch {
+      width: 18px;
+      height: 18px;
+      background: #222;
+      border-radius: 50%;
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.15);
+      z-index: 10;
+      border: 2px solid #444;
+    }
+
+    .preview-bg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+
+    .preview-overlay {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 80px;
+    }
+
+    .preview-icon-wrapper {
+      width: 96px;
+      height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border-radius: 24px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .preview-icon {
+      width: 96px;
+      height: 96px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .icon-default {
+      width: 48px;
+      height: 48px;
+      opacity: 0.5;
+    }
+
+    .preview-title {
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      margin-bottom: 32px;
+      text-align: center;
+      transition: color 0.2s, font-size 0.2s;
+    }
+
+    .title-size-small {
+      font-size: 1.3rem;
+    }
+
+    .title-size-medium {
+      font-size: 2rem;
+    }
+
+    .title-size-large {
+      font-size: 2.7rem;
+    }
+
+    .login-form-preview {
+      background: #fff;
+      border-radius: 25px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18), 0 1.5px 0 #eee inset;
+      padding: 32px 24px 24px 24px;
+      width: 90%;
+      max-width: 320px;
+      margin: 0 auto;
+      z-index: 3;
+      border: none;
+      position: relative;
+      top: 0;
+      transition: box-shadow 0.3s;
+    }
+
+    .login-form-preview:focus-within {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28), 0 1.5px 0 #eee inset;
+    }
+
+    .preview-link {
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    .preview-link a {
+      color: inherit;
+      background: none;
+      padding: 0;
+      border-radius: 0;
+      text-decoration: underline;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .preview-link a:hover {
+      color: #0056b3;
+      background: none;
+    }
+
+    @media (max-width: 991px) {
+      .phone-frame {
+        width: 320px;
+        height: 600px;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+
+      .container-fluid,
+      .row {
+        min-height: unset;
+        height: unset;
+      }
+
+      .row {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .col-preview,
+      .col-form {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .phone-frame {
+        margin-top: 32px;
+        margin-bottom: 32px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="container-fluid">
-    <div class="row h-100">
-        <!-- Left: Form -->
-        <div class="col-lg-5 col-md-6 d-flex align-items-center justify-content-center bg-white py-5">
-            <form id="inputForm" class="w-100" style="max-width: 400px;">
-                <h3 class="mb-4">Cài đặt màn hình trường</h3>
-                <div class="mb-3">
-                    <label for="schoolName" class="form-label">Tên trường</label>
-                    <input type="text" class="form-control" id="schoolName" placeholder="Nhập tên trường" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Chọn hình nền hoặc màu sắc</label>
-                    <input type="file" class="form-control mb-2" id="bgImage" accept="image/*">
-                    <input type="color" class="form-control form-control-color" id="bgColor" value="#1e90ff" title="Chọn màu nền">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Chọn icon (256x256)</label>
-                    <input type="file" class="form-control" id="iconImage" accept="image/*">
-                </div>
-                <button type="submit" class="btn btn-primary mt-3">Xem Preview</button>
-            </form>
-        </div>
-        <!-- Right: Preview -->
-        <div class="col-lg-7 col-md-6 d-flex align-items-center justify-content-center bg-light py-5">
-            <div class="phone-frame" id="phoneFrame">
-                <div class="phone-notch"></div>
-                <img id="previewBg" class="preview-bg" style="display:none;">
-                <div id="previewBgColor" class="preview-bg" style="z-index:1;"></div>
-                <div class="preview-overlay">
-                    <img id="previewIcon" class="preview-icon" src="" alt="icon" style="display:none;">
-                    <div id="previewTitle" class="preview-title">Tên trường</div>
-                    <form class="login-form-preview shadow">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Tên đăng nhập">
-                        </div>
-                        <div class="mb-3">
-                            <input type="password" class="form-control" placeholder="Mật khẩu">
-                        </div>
-                        <button type="button" class="btn btn-primary w-100">Đăng nhập</button>
-                    </form>
-                </div>
+  <div class="container-fluid">
+    <div class="row h-100 flex-lg-row flex-column-reverse">
+      <!-- Left: Form -->
+      <div class="col-lg-5 col-md-6 d-flex align-items-center justify-content-center bg-white py-5 col-form">
+        <form id="inputForm" class="w-100" style="max-width: 400px;">
+          <h3 class="mb-4">Cài đặt màn hình trường</h3>
+          <div class="mb-3">
+            <label for="schoolName" class="form-label">Tên trường</label>
+            <input type="text" class="form-control" id="schoolName" placeholder="Nhập tên trường" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Chọn hình nền hoặc màu sắc</label>
+            <input type="file" class="form-control mb-2" id="bgImage" accept="image/*">
+            <input type="color" class="form-control form-control-color" id="bgColor" value="#1e90ff"
+              title="Chọn màu nền">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Chọn icon (256x256)</label>
+            <input type="file" class="form-control" id="iconImage" accept="image/*">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Màu chữ tên trường</label>
+            <input type="color" class="form-control form-control-color" id="titleColor" value="#ffffff"
+              title="Chọn màu chữ">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Kích thước chữ tên trường</label>
+            <select class="form-select" id="titleSize">
+              <option value="small">Nhỏ</option>
+              <option value="medium" selected>Vừa</option>
+              <option value="large">Lớn</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Tên link</label>
+            <input type="text" class="form-control" id="linkName" placeholder="Ví dụ: Trang chủ trường">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">URL link</label>
+            <input type="url" class="form-control" id="linkUrl" placeholder="https://...">
+          </div>
+          <button type="submit" class="btn btn-primary mt-3">Xem Preview</button>
+        </form>
+      </div>
+      <!-- Right: Preview -->
+      <div class="col-lg-7 col-md-6 d-flex align-items-center justify-content-center bg-light py-5 col-preview">
+        <div class="phone-frame" id="phoneFrame">
+          <div class="phone-notch"></div>
+          <img id="previewBg" class="preview-bg" style="display:none;">
+          <div id="previewBgColor" class="preview-bg" style="z-index:1;"></div>
+          <div class="preview-overlay">
+            <div class="preview-icon-wrapper">
+              <img id="previewIcon" class="preview-icon" src="" alt="icon" style="display:none;">
+              <svg id="iconDefault" class="icon-default" viewBox="0 0 256 256" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect width="256" height="256" rx="48" fill="#e0e0e0" />
+                <path
+                  d="M128 60a44 44 0 1 1 0 88 44 44 0 0 1 0-88zm0 104c-36.4 0-68 18.4-68 41.1V220h136v-14.9C196 182.4 164.4 164 128 164z"
+                  fill="#bdbdbd" />
+              </svg>
             </div>
+            <div id="previewTitle" class="preview-title title-size-medium" style="color:#fff;">Tên trường</div>
+            <form class="login-form-preview shadow">
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Tên đăng nhập">
+              </div>
+              <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Mật khẩu">
+              </div>
+              <button type="button" class="btn btn-primary w-100">Đăng nhập</button>
+            </form>
+            <div class="preview-link" id="previewLink" style="display:none;"></div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
+  </div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
     // Elements
     const schoolName = document.getElementById('schoolName');
     const bgImage = document.getElementById('bgImage');
@@ -166,72 +291,112 @@
     const previewBg = document.getElementById('previewBg');
     const previewBgColor = document.getElementById('previewBgColor');
     const previewIcon = document.getElementById('previewIcon');
+    const iconDefault = document.getElementById('iconDefault');
     const previewTitle = document.getElementById('previewTitle');
+    const titleColor = document.getElementById('titleColor');
+    const titleSize = document.getElementById('titleSize');
     const inputForm = document.getElementById('inputForm');
+    const linkName = document.getElementById('linkName');
+    const linkUrl = document.getElementById('linkUrl');
+    const previewLink = document.getElementById('previewLink');
 
     // Update preview functions
     function updateSchoolName() {
-        previewTitle.textContent = schoolName.value || 'Tên trường';
+      previewTitle.textContent = schoolName.value || 'Tên trường';
+    }
+    function updateTitleColor() {
+      previewTitle.style.color = titleColor.value;
+      previewLink.style.color = titleColor.value; // Thêm dòng này
+    }
+    function updateTitleSize() {
+      previewTitle.classList.remove('title-size-small', 'title-size-medium', 'title-size-large');
+      previewTitle.classList.add('title-size-' + titleSize.value);
     }
     function updateBgColor() {
-        previewBgColor.style.display = 'block';
-        previewBgColor.style.background = bgColor.value;
-        previewBg.style.display = 'none';
+      previewBgColor.style.display = 'block';
+      previewBgColor.style.background = bgColor.value;
+      previewBg.style.display = 'none';
     }
     function updateBgImage(file) {
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                previewBg.src = e.target.result;
-                previewBg.style.display = 'block';
-                previewBgColor.style.display = 'none';
-            }
-            reader.readAsDataURL(file);
-        } else {
-            previewBg.style.display = 'none';
-            previewBgColor.style.display = 'block';
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          previewBg.src = e.target.result;
+          previewBg.style.display = 'block';
+          previewBgColor.style.display = 'none';
         }
+        reader.readAsDataURL(file);
+      } else {
+        previewBg.style.display = 'none';
+        previewBgColor.style.display = 'block';
+      }
     }
     function updateIconImage(file) {
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                previewIcon.src = e.target.result;
-                previewIcon.style.display = 'block';
-            }
-            reader.readAsDataURL(file);
-        } else {
-            previewIcon.style.display = 'none';
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          previewIcon.src = e.target.result;
+          previewIcon.style.display = 'block';
+          iconDefault.style.display = 'none';
         }
+        reader.readAsDataURL(file);
+      } else {
+        previewIcon.src = '';
+        previewIcon.style.display = 'none';
+        iconDefault.style.display = 'block';
+      }
+    }
+    function updateLink() {
+      const name = linkName.value.trim();
+      const url = linkUrl.value.trim();
+      if (name && url) {
+        previewLink.innerHTML = `<a href="${url}" target="_blank" rel="noopener">${name}</a>`;
+        previewLink.style.display = 'block';
+      } else {
+        previewLink.innerHTML = '';
+        previewLink.style.display = 'none';
+      }
     }
 
     // Event listeners
     schoolName.addEventListener('input', updateSchoolName);
-    bgColor.addEventListener('input', function() {
-        if (!bgImage.files[0]) updateBgColor();
+    titleColor.addEventListener('input', updateTitleColor);
+    titleSize.addEventListener('change', updateTitleSize);
+    bgColor.addEventListener('input', function () {
+      if (!bgImage.files[0]) updateBgColor();
     });
-    bgImage.addEventListener('change', function() {
-        updateBgImage(bgImage.files[0]);
+    bgImage.addEventListener('change', function () {
+      updateBgImage(bgImage.files[0]);
     });
-    iconImage.addEventListener('change', function() {
-        updateIconImage(iconImage.files[0]);
+    iconImage.addEventListener('change', function () {
+      updateIconImage(iconImage.files[0]);
     });
+    linkName.addEventListener('input', updateLink);
+    linkUrl.addEventListener('input', updateLink);
 
     // On form submit, just prevent reload and update preview
-    inputForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        updateSchoolName();
-        if (bgImage.files[0]) {
-            updateBgImage(bgImage.files[0]);
-        } else {
-            updateBgColor();
-        }
-        updateIconImage(iconImage.files[0]);
+    inputForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      updateSchoolName();
+      updateTitleColor();
+      updateTitleSize();
+      if (bgImage.files[0]) {
+        updateBgImage(bgImage.files[0]);
+      } else {
+        updateBgColor();
+      }
+      updateIconImage(iconImage.files[0]);
+      updateLink();
     });
 
     // Initial state
     updateSchoolName();
+    updateTitleColor();
+    updateTitleSize();
     updateBgColor();
-</script>
+    updateIconImage(null);
+    updateLink();
+  </script>
 </body>
+
 </html>
