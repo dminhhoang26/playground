@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Preview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+        .container-fluid {
+            min-height: 100vh;
+        }
+        .phone-frame {
+            width: 400px;
+            height: 850px;
+            border-radius: 50px;
+            border: 8px solid #222;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 1.5px 0 #888 inset;
+            position: relative;
+            background: #fff;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .phone-notch {
+            width: 120px;
+            height: 18px;
+            background: #222;
+            border-radius: 0 0 18px 18px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .preview-bg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 1;
+            top: 0; left: 0;
+            object-fit: cover;
+        }
+        .preview-overlay {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 80px;
+        }
+        .preview-icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 24px;
+            background: #fff;
+            object-fit: cover;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            margin-bottom: 18px;
+        }
+        .preview-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .login-form-preview {
+            background: #fff;
+            border-radius: 25px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1.5px 0 #eee inset;
+            padding: 32px 24px 24px 24px;
+            width: 90%;
+            max-width: 320px;
+            margin: 0 auto;
+            z-index: 3;
+            border: none;
+            position: relative;
+            top: 0;
+            transition: box-shadow 0.3s;
+        }
+        .login-form-preview:focus-within {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.28), 0 1.5px 0 #eee inset;
+        }
+        @media (max-width: 991px) {
+            .phone-frame {
+                width: 320px;
+                height: 600px;
+            }
+        }
+        @media (max-width: 767px) {
+            .row {
+                flex-direction: column;
+            }
+            .phone-frame {
+                margin-top: 32px;
+                margin-bottom: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row h-100">
+        <!-- Left: Form -->
+        <div class="col-lg-5 col-md-6 d-flex align-items-center justify-content-center bg-white py-5">
+            <form id="inputForm" class="w-100" style="max-width: 400px;">
+                <h3 class="mb-4">Cài đặt màn hình trường</h3>
+                <div class="mb-3">
+                    <label for="schoolName" class="form-label">Tên trường</label>
+                    <input type="text" class="form-control" id="schoolName" placeholder="Nhập tên trường" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Chọn hình nền hoặc màu sắc</label>
+                    <input type="file" class="form-control mb-2" id="bgImage" accept="image/*">
+                    <input type="color" class="form-control form-control-color" id="bgColor" value="#1e90ff" title="Chọn màu nền">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Chọn icon (256x256)</label>
+                    <input type="file" class="form-control" id="iconImage" accept="image/*">
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Xem Preview</button>
+            </form>
+        </div>
+        <!-- Right: Preview -->
+        <div class="col-lg-7 col-md-6 d-flex align-items-center justify-content-center bg-light py-5">
+            <div class="phone-frame" id="phoneFrame">
+                <div class="phone-notch"></div>
+                <img id="previewBg" class="preview-bg" style="display:none;">
+                <div id="previewBgColor" class="preview-bg" style="z-index:1;"></div>
+                <div class="preview-overlay">
+                    <img id="previewIcon" class="preview-icon" src="" alt="icon" style="display:none;">
+                    <div id="previewTitle" class="preview-title">Tên trường</div>
+                    <form class="login-form-preview shadow">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Tên đăng nhập">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" placeholder="Mật khẩu">
+                        </div>
+                        <button type="button" class="btn btn-primary w-100">Đăng nhập</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Elements
+    const schoolName = document.getElementById('schoolName');
+    const bgImage = document.getElementById('bgImage');
+    const bgColor = document.getElementById('bgColor');
+    const iconImage = document.getElementById('iconImage');
+    const previewBg = document.getElementById('previewBg');
+    const previewBgColor = document.getElementById('previewBgColor');
+    const previewIcon = document.getElementById('previewIcon');
+    const previewTitle = document.getElementById('previewTitle');
+    const inputForm = document.getElementById('inputForm');
+
+    // Update preview functions
+    function updateSchoolName() {
+        previewTitle.textContent = schoolName.value || 'Tên trường';
+    }
+    function updateBgColor() {
+        previewBgColor.style.display = 'block';
+        previewBgColor.style.background = bgColor.value;
+        previewBg.style.display = 'none';
+    }
+    function updateBgImage(file) {
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewBg.src = e.target.result;
+                previewBg.style.display = 'block';
+                previewBgColor.style.display = 'none';
+            }
+            reader.readAsDataURL(file);
+        } else {
+            previewBg.style.display = 'none';
+            previewBgColor.style.display = 'block';
+        }
+    }
+    function updateIconImage(file) {
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewIcon.src = e.target.result;
+                previewIcon.style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        } else {
+            previewIcon.style.display = 'none';
+        }
+    }
+
+    // Event listeners
+    schoolName.addEventListener('input', updateSchoolName);
+    bgColor.addEventListener('input', function() {
+        if (!bgImage.files[0]) updateBgColor();
+    });
+    bgImage.addEventListener('change', function() {
+        updateBgImage(bgImage.files[0]);
+    });
+    iconImage.addEventListener('change', function() {
+        updateIconImage(iconImage.files[0]);
+    });
+
+    // On form submit, just prevent reload and update preview
+    inputForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        updateSchoolName();
+        if (bgImage.files[0]) {
+            updateBgImage(bgImage.files[0]);
+        } else {
+            updateBgColor();
+        }
+        updateIconImage(iconImage.files[0]);
+    });
+
+    // Initial state
+    updateSchoolName();
+    updateBgColor();
+</script>
+</body>
+</html>
