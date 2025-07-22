@@ -26,8 +26,10 @@
     }
 
     .phone-frame {
-      width: 400px;
-      height: 850px;
+      aspect-ratio: 20 / 43;
+      width: 100%;
+      max-width: 400px;
+      max-height: 90vh;
       border-radius: 50px;
       border: 8px solid #222;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 1.5px 0 #888 inset;
@@ -39,6 +41,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      min-width: 220px;
+      min-height: 430px;
     }
 
     .phone-notch {
@@ -47,7 +51,7 @@
       background: #222;
       border-radius: 50%;
       position: absolute;
-      top: 14px;
+      top: 12px;
       left: 50%;
       transform: translateX(-50%);
       box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.15);
@@ -74,12 +78,16 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding-top: 80px;
+      padding-top: 60px;
     }
 
     .preview-icon-wrapper {
       width: 96px;
       height: 96px;
+      max-width: 22vw;
+      max-height: 22vw;
+      min-width: 48px;
+      min-height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -94,6 +102,8 @@
     .preview-icon {
       width: 96px;
       height: 96px;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: cover;
       object-position: center;
       display: block;
@@ -112,6 +122,7 @@
       margin-bottom: 32px;
       text-align: center;
       transition: color 0.2s, font-size 0.2s;
+      word-break: break-word;
     }
 
     .title-size-small {
@@ -148,6 +159,7 @@
     .preview-link {
       margin-top: 18px;
       text-align: center;
+      color: inherit;
     }
 
     .preview-link a {
@@ -167,8 +179,14 @@
 
     @media (max-width: 991px) {
       .phone-frame {
-        width: 320px;
-        height: 600px;
+        max-width: 320px;
+        border-radius: 32px;
+      }
+
+      .phone-notch {
+        width: 14px;
+        height: 14px;
+        top: 8px;
       }
     }
 
@@ -195,8 +213,14 @@
       }
 
       .phone-frame {
-        margin-top: 32px;
-        margin-bottom: 32px;
+        max-width: 320px;
+        max-height: 80vh;
+      }
+
+      .phone-notch {
+        width: 14px;
+        height: 14px;
+        top: 8px;
       }
     }
   </style>
@@ -306,7 +330,7 @@
     }
     function updateTitleColor() {
       previewTitle.style.color = titleColor.value;
-      previewLink.style.color = titleColor.value; // Thêm dòng này
+      previewLink.style.color = titleColor.value; // Link cùng màu với tên trường
     }
     function updateTitleSize() {
       previewTitle.classList.remove('title-size-small', 'title-size-medium', 'title-size-large');
