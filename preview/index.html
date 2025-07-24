@@ -46,6 +46,7 @@
       justify-content: flex-start;
       min-width: 220px;
       min-height: 430px;
+      transition: border-radius 0.4s ease-in-out, border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
     }
 
     .phone-notch {
@@ -60,6 +61,29 @@
       transform: translateX(-50%);
       z-index: 10;
       border: 1px solid #222;
+      cursor: pointer;
+      /* Indicates it's clickable */
+      /* Added transition for smooth switching */
+      transition: all 0.4s ease-in-out;
+    }
+
+    .phone-frame.is-iphone {
+      border-radius: 48px;
+      /* More rounded corners for iPhone */
+      border-color: #38383a;
+      /* iPhone's Pro dark gray titanium color */
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 1px 0 #666 inset;
+    }
+
+    .phone-frame.is-iphone .phone-notch {
+      /* Transforms the notch into the Dynamic Island */
+      width: 110px;
+      height: 28px;
+      border-radius: 20px;
+      /* Pill shape */
+      top: 14px;
+      background: #000;
+      border: none;
     }
 
     .preview-bg {
@@ -186,10 +210,20 @@
         border-radius: 16px;
       }
 
+      .phone-frame.is-iphone {
+        border-radius: 42px;
+      }
+
       .phone-notch {
         width: 14px;
         height: 14px;
         top: 8px;
+      }
+
+      .phone-frame.is-iphone .phone-notch {
+        width: 90px;
+        height: 24px;
+        top: 13px;
       }
     }
 
@@ -277,7 +311,7 @@
       <!-- Right: Preview -->
       <div class="col-lg-7 col-md-6 d-flex align-items-center justify-content-center bg-light py-5 col-preview">
         <div class="phone-frame" id="phoneFrame">
-          <div class="phone-notch"></div>
+          <div class="phone-notch" id="phoneClickableNotch"></div>
           <img id="previewBg" class="preview-bg" style="display:none;">
           <div id="previewBgColor" class="preview-bg" style="z-index:1;"></div>
           <div class="preview-overlay">
@@ -414,6 +448,9 @@
       }
       updateIconImage(iconImage.files[0]);
       updateLink();
+    });
+    phoneClickableNotch.addEventListener('click', function () {
+      phoneFrame.classList.toggle('is-iphone');
     });
 
     // Initial state
