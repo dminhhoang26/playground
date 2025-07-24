@@ -26,15 +26,18 @@
     }
 
     .phone-frame {
-      aspect-ratio: 20 / 43;
+      aspect-ratio: 19.5 / 42;
       width: 100%;
       max-width: 400px;
       max-height: 90vh;
-      border-radius: 50px;
-      border: 8px solid #222;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 1.5px 0 #888 inset;
+      /* Key change: Very sharp corners for the boxy look */
+      border-radius: 18px;
+      /* Key change: Wider, flatter, titanium-colored border */
+      border: 8px solid #2d2d2d;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 1px 0 #555 inset;
+      /* Refined shadow for a flatter feel */
       position: relative;
-      background: #fff;
+      background: #000;
       margin: 0 auto;
       overflow: hidden;
       display: flex;
@@ -48,15 +51,15 @@
     .phone-notch {
       width: 18px;
       height: 18px;
-      background: #222;
+      background: #000;
       border-radius: 50%;
       position: absolute;
       top: 12px;
+      /* Positioned within the top screen area */
       left: 50%;
       transform: translateX(-50%);
-      box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.15);
       z-index: 10;
-      border: 2px solid #444;
+      border: 1px solid #222;
     }
 
     .preview-bg {
@@ -180,7 +183,7 @@
     @media (max-width: 991px) {
       .phone-frame {
         max-width: 320px;
-        border-radius: 32px;
+        border-radius: 16px;
       }
 
       .phone-notch {
