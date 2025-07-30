@@ -136,6 +136,20 @@ Overflow text
 - realm (local db)
 
 
+### Nextjs
+- config nextjs logo and build indicator in dev mode
+```javascript
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  devIndicators: {
+    buildIndicator: false, // Tắt logo và các indicator khác trong chế độ dev
+  },
+};
+
+export default nextConfig;
+```
+
+
 ### Libs
 - https://www.npmjs.com/package/ngx-image-cropper
 - https://github.com/romboHQ/tailwindcss-motion
