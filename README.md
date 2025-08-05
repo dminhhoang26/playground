@@ -1,7 +1,7 @@
 ## [Github actions](https://github.com/actions)
 
 ## Note / Tip
-### Some css tips
+### Some html/css tips
 ```css
 
 awesome-class: {
@@ -75,6 +75,9 @@ Overflow text
   white-space: nowrap;
 }
 ```
+
+
+Whitespace char: `&nbsp;`
 
 ### Javascript
 - stopImmediatePropagation event
