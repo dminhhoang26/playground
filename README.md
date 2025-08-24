@@ -139,6 +139,11 @@ Whitespace char: `&nbsp;`
 - realm (local db)
 
 
+### React Native
+- Libraries that are compatible with React Native -> https://reactnative.directory/
+
+
+
 ### Nextjs
 - config nextjs logo and build indicator in dev mode
 ```javascript
