@@ -167,6 +167,7 @@ export default nextConfig;
 
 ### sh
 - clean android: `./gradlew clean`
+- release android: `gradlew assembleRelease`
 - update the macos quarantine to fix app cannot open: `xattr -c /Applications/AppName.app`
   
 
