@@ -85,6 +85,17 @@ Whitespace char: `&nbsp;`
 - TipTap headless editor (try to implement in angular)
 - Corepack for nodejs
 - Object.groupBy, Map.groupBy
+- Falsy values:
+```text
+    false
+0
+-0
+0n (BigInt zero)
+''
+null
+undefined
+NaN
+```
 
 ### Typescript
 - Union type
