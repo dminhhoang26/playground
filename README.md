@@ -79,6 +79,13 @@ Overflow text
 
 Whitespace char: `&nbsp;`
 
+Over scroll:
+```css
+content: {
+  overscroll-behavior-y: none;
+}
+```
+
 ### Javascript
 - stopImmediatePropagation event
 - promise can add any value and return this value if not exec
