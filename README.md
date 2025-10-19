@@ -155,6 +155,7 @@ NaN
     <input onChange={onChange} />;
   ```
 - realm (local db)
+- https://github.com/dohooo/react-native-reanimated-carousel
 
 
 ### React Native
