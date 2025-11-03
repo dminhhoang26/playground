@@ -16,7 +16,7 @@ transform: translateY(-100%);
 
 ```
 ```css
-<!-- flex display -->
+/* flex display */
 awesome-class: {
     justify-content: start end center space-between space-around;
     
@@ -34,7 +34,7 @@ awesome-class: {
 ```
 [overflow element trick:](https://stackoverflow.com/questions/12013066/how-to-ignore-parent-elements-overflowhidden-in-css)
 ```css
-# A good way to do it is by setting the overflowing element to position:fixed (which will make it ignore the parent overflow), and then positioning it relative to the parent using this technique:
+/* A good way to do it is by setting the overflowing element to position:fixed (which will make it ignore the parent overflow), and then positioning it relative to the parent using this technique: */
 
 ​.parent {
    position: relative;      
@@ -94,7 +94,7 @@ content: {
 - Object.groupBy, Map.groupBy
 - Falsy values:
 ```text
-    false
+false
 0
 -0
 0n (BigInt zero)
