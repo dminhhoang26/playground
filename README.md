@@ -141,6 +141,12 @@ NaN
     const keys = createKeyUnion(apiData); 
     // => type of keys: ('1' | '2' | '3')[]
     ```
+- `Pick<Obj, Keys>` Create a new object type that contains only the specified keys from the original object:
+  ```typescript
+      type Obje = {id: string; prop1: string; prop2: number}
+      type ObjePk = Pick<Obje, 'prop1' | 'prop2'>
+      // => {prop1: string; prop2: number}
+  ```
 
 ### React
 - Event type quick
