@@ -86,6 +86,11 @@ content: {
 }
 ```
 
+Direct inline html tag mouse hover style
+```html
+ onMouseOver="this.style.border='1px solid gray';" onMouseOut="this.style.border='none'"
+```
+
 ### Javascript
 - stopImmediatePropagation event
 - promise can add any value and return this value if not exec
