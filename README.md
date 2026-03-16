@@ -199,7 +199,7 @@ export default nextConfig;
 - clean android: `./gradlew clean`
 - release android: `gradlew assembleRelease`
 - update the macos quarantine to fix app cannot open: `xattr -c /Applications/AppName.app`
-- handle `myscript.sh --complete --word=:"any-abc"
+- handle `myscript.sh --complete --word="any-abc"
 ```bash
     word=""
 	i=1
