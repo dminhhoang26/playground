@@ -199,7 +199,26 @@ export default nextConfig;
 - clean android: `./gradlew clean`
 - release android: `gradlew assembleRelease`
 - update the macos quarantine to fix app cannot open: `xattr -c /Applications/AppName.app`
-  
+- handle `myscript.sh --complete --word=:"any-abc"
+```bash
+    word=""
+	i=1
+	while [[ $i -le $# ]]; do
+	  eval "arg=\${$i}"
+	  case "$arg" in
+		--word=*)
+		  word="${arg#--word=}"
+		  ;;
+		--word)
+		  next=$((i+1))
+		  eval "word=\${$next:-}"
+		  ;;
+	  esac
+	  i=$((i+1))
+	done
+
+    echo "$word"
+```  
 
 ### C#
 - check running in macos: `System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.OSX)`
